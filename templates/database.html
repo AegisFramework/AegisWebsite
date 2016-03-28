@@ -1,0 +1,168 @@
+<details>
+	<summary>
+		<span class="title">Instantiation</span>
+		<p>How to create a database object.</p>
+	</summary>
+	<p><b>Parameters:</b> String (User), String (Password), String (Database)</p>
+	<p><b>Optional Parameters:</b> String (Host), default is localhost.</p>
+	<p><b>Returns:</b> Database Instance</p>
+	<p>Example:</p>
+	<pre><code class="language-php">$db = new Database("user", "password", "my_wp");</code></pre>
+	<samp>
+		Result: $db is now a Database object. It connects right after it's creation.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">getPdo()</span>
+		<p>Get's the PDO instance.</p>
+	</summary>
+	<p><b>Parameters:</b> None</p>
+	<p><b>Returns:</b> Object</p>
+	<p>Example:</p>
+	<pre><code class="language-php">$db -> getPdo();</code></pre>
+	<samp>
+		Result: Returns PDO object
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">query()</span>
+		<p>Makes an SQL query to the database.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Query)</p>
+	<p><b>Returns:</b> Associative Array with the Requested Data / Null if failed</p>
+	<p>Example:</p>
+	<pre><code class="language-php">$db -> query("SELECT `name` FROM `User`");</code></pre>
+	<samp>
+		Result:  Associative Array with all the names from the table User.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">selectAllWhere()</span>
+		<p>Makes a select all query from a given table where the keyname (Field) is equal to the Key (Value).</p>
+	</summary>
+	<p><b>Parameters:</b> String (Table), String (Keyname), String (Key)</p>
+	<p><b>Returns:</b> Associative Array with the Requested Data / Null if failed</p>
+	<p>Example: (Assuming we have a database with a Usernames table, with an id field)</p>
+	<pre><code class="language-php">$db -> selectAllWhere("Usernames", "id", 3);</code></pre>
+	<samp>
+		Result: All the data from the user with id = 3 in an Associative Array.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">selectAllFrom()</span>
+		<p>Selects all records from a given table.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Table)</p>
+	<p><b>Returns:</b> Requested Data in an Associative Array / Null if failed</p>
+	<p>Example: (Assuming we have a database with a Usernames table)</p>
+	<pre><code class="language-php">$db -> selectAllFrom("Usernames");</code></pre>
+	<samp>
+		Result: Usernames Table as an Associative Array
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">exists()</span>
+		<p>Checks if record with the given information already exists.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Table), String (Keyname), String (Key)</p>
+	<p><b>Returns:</b> Boolean (If it exists or not)</p>
+	<p>Example: (Assuming we have a database with a Usernames table that has an email field)</p>
+	<pre><code class="language-php">$db -> exists("Usernames", "email", "john@email.com");</code></pre>
+	<samp>
+		Result: True if there's an user with the email "john@email.com" or false if there isn't.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">delete()</span>
+		<p>Makes a "DELETE FROM" query from a given Table and where the field (keyname) has the value (key).</p>
+	</summary>
+	<p><b>Parameters:</b> String (Table), String (Keyname), String (Key)</p>
+	<p><b>Returns:</b> None</p>
+	<p>Example: (Assuming we have a database with a Usernames table that has an email field)</p>
+	<pre><code class="language-php">$db -> delete("Usernames", "email", "john@email.com");</code></pre>
+	<samp>
+		Result: Deletes everything where the email is "john@email.com".
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">insert()</span>
+		<p>Inserts the given data into the given table.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Table), Associative Array (Data)</p>
+	<p><b>Returns:</b> None</p>
+	<p>Example: (Assuming we have a Users table with a field "Name" and a field "City")</p>
+	<pre><code class="language-php">$db -> insert("Users", ["Name" => "John Doe", "City" => "New York"]);</code></pre>
+	<samp>
+		Result: Inserts a new record with that information.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">update()</span>
+		<p>Updates the record of a given table with the given new data where the field (keyname) matches the value (key).</p>
+	</summary>
+	<p><b>Parameters:</b> String (Table), Associative Array (Data), String (Keyname), String (Key)</p>
+	<p><b>Returns:</b> None</p>
+	<p>Example: (Assuming we have a Users table with a field "Name" and a field "City")</p>
+	<pre><code class="language-php">$db -> update("Users", ["City" => "London"], "Name", "John Doe");</code></pre>
+	<samp>
+		Result: Updates the city of the User named John Doe.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">backupTo()</span>
+		<p>Creates a Backup File for the Database.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Directory)</p>
+	<p><b>Returns:</b> None</p>
+	<p>Example: </p>
+	<pre><code class="language-php">$db -> backup("backups");</code></pre>
+	<samp>
+		Result: An SQL file with the database backup is created in the "backups" directory.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">restore()</span>
+		<p>Restores the Database from a Backup File.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Route of Backup File)</p>
+	<p><b>Returns:</b> None</p>
+	<p>Example: </p>
+	<pre><code class="language-php">$db -> restore("backups/backup_2015-02-02 01:03:00.sql");</code></pre>
+	<samp>
+		Result: Database gets restored from the backup file.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">selectAllByDate()</span>
+		<p>Makes a "SELECT *" query from a given table and orders it by date in a descending order.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Table), String (Name of the Date Field)</p>
+	<p><b>Returns:</b> Requested Data in an Associative Array</p>
+	<p>Example: (We have a table of Posts called "Post" and a field for the date called "Date")</p>
+	<pre><code class="language-php">$db -> selectAllByDate("Post", "Date");</code></pre>
+	<samp>
+		Result: Post's Associative Array in a date's descending order.
+	</samp>
+</details>

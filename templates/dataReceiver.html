@@ -1,0 +1,29 @@
+<details>
+	<summary>
+		<span class="title">Instantiation</span>
+		<p>How to create a Data Receiver object.</p>
+	</summary>
+	<p><b>Parameters:</b> None</p>
+	<p><b>Returns:</b> Data Receiver Instance</p>
+	<p>Example:</p>
+	<pre><code class="language-php">$receiver = new DataReceiver();</code></pre>
+	<samp>
+		Result: $receiver is now a Data Receiver object.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">receive()</span>
+		<p>Receive information of an HTTP request.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Method), String (Keys)</p>
+	<p><b>Optional Parameters:</b> Boolean (Allow HTML in the data), Boolean (Allow empty data)</p>
+	<p><b>Returns:</b> Associative Array with the Data of the request corresponding to the Keys given.</p>
+	<p>Example: (Assuming a form is sending via a Post request the user and password of an user)</p>
+	<pre><code class="language-php">$receiver -> receive("POST", "user,password");</code></pre>
+	<samp>
+		Result: Associative array with the data. Ex:
+		<pre><code class="language-php">["user" => "user@mail.com", "password" => "Apassw0rd"]</code></pre>
+	</samp>
+</details>

@@ -1,0 +1,83 @@
+<details>
+	<summary>
+		<span class="title">Instantiation</span>
+		<p>How to create a Mail object.</p>
+	</summary>
+	<p><b>Parameters:</b> None</p>
+	<p><b>Returns:</b> Mail Instance</p>
+	<p>Example:</p>
+	<pre><code class="language-php">$mail = new Mail();</code></pre>
+	<samp>
+		Result: $mail is now a Mail object.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">addRecipient()</span>
+		<p>Adds a recipient to send the mail to.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Recipient's Email Address)</p>
+	<p><b>Returns:</b> None</p>
+	<p>Example:</p>
+	<pre><code class="language-php">$mail -> addRecipient("example@mail.com");</code></pre>
+	<samp>
+		Result: When sent, the message will be sent to all the recipients added.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">addHeader()</span>
+		<p>Adds a Header to send the mail with.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Header)</p>
+	<p><b>Returns:</b> None</p>
+	<p>Example:</p>
+	<pre><code class="language-php">$mail -> addHeader("From: Sender Name <sender@domain.com>");</code></pre>
+	<samp>
+		Result: The given header is added to the mail and will be sent with it when you send the mail.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">setSubject()</span>
+		<p>Sets the mail subject.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Subject)</p>
+	<p><b>Returns:</b> None</p>
+	<p>Example:</p>
+	<pre><code class="language-php">$mail -> setSubject("Meeting Reminder");</code></pre>
+	<samp>
+		Result: The mail will have the given Subject.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">setBody()</span>
+		<p>Sets the mail body.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Body/Message)</p>
+	<p><b>Returns:</b> None</p>
+	<p>Example:</p>
+	<pre><code class="language-php">$mail -> setBody("Hey, just to remind you about our meeting tomorrow.");</code></pre>
+	<samp>
+		Result: The mail will have the given Body.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">send()</span>
+		<p>Sets the mail body.</p>
+	</summary>
+	<p><b>Parameters:</b> None</p>
+	<p><b>Returns:</b> None</p>
+	<p>Example:</p>
+	<pre><code class="language-php">$mail -> send();</code></pre>
+	<samp>
+		Result: The mail will be sent with the information previously set and to the previously added recipients.
+	</samp>
+</details>

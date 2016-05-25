@@ -1,0 +1,67 @@
+<details>
+	<summary>
+		<span class="title">get()</span>
+		<p>Sends a GET request.</p>
+	</summary>
+	<p><b>Parameters: String (Url), JSON Object (Data), JSON Object (Callback functions)</b></p>
+	<p><b>Optional Parameters: String (Response Type)</b></p>
+	<p><b>Returns: XMLHttpRequest object</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">Request.get("http://example.com/json/", {lang: "en"} {
+	onload: function (request){
+
+	},
+
+	onerror: function(request){
+
+	}
+});</code></pre>
+	<samp>
+		Result: The request will be sent, when it succeeds it will launch the onload function, if there's an error, it will launch the onerror function.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">post()</span>
+		<p>Sends a POST request.</p>
+	</summary>
+	<p><b>Parameters: String (Url), JSON Object (Data), JSON Object (Callback functions)</b></p>
+	<p><b>Optional Parameters: String (Response Type), String (Content Type)</b></p>
+	<p><b>Returns: XMLHttpRequest object</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">Request.post("http://example.com/json/", new FormData($_("#myForm").get(0)), "text", "multipart/form-data" {
+	onload: function (request){
+
+	},
+
+	onerror: function(request){
+
+	}
+});</code></pre>
+	<samp>
+		Result: The request will be sent, when it succeeds it will launch the onload function, if there's an error, it will launch the onerror function.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">json()</span>
+		<p>Retrieves JSON from a given url.</p>
+	</summary>
+	<p><b>Parameters: String (Url), JSON Object (Callback functions)</b></p>
+	<p><b>Returns: XMLHttpRequest object</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">Request.json("http://example.com/json/", {
+	onload: function (request){
+
+	},
+
+	onerror: function(request){
+
+	}
+});</code></pre>
+	<samp>
+		Result: The request will be sent, when it succeeds it will launch the onload function, if there's an error, it will launch the onerror function.
+	</samp>
+</details>

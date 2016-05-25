@@ -1,0 +1,110 @@
+<details>
+	<summary>
+		<span class="title">capitalize()</span>
+		<p>Capitalizes every first letter of all the words in the text.</p>
+	</summary>
+	<p><b>Parameters: String</b></p>
+	<p><b>Returns: String</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">Text.capitalize("hello world");</code></pre>
+	<samp>
+		Result: <pre><code class="language-javascript">"Hello World"</code></pre>
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">getSuffix()</span>
+		<p>Gets the suffix of a given phrase in a given text.</p>
+	</summary>
+	<p><b>Parameters: String (Full Text), String (Key)</b></p>
+	<p><b>Returns: String</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">Text.getSuffix("hello world", "hello");</code></pre>
+	<samp>
+		Result: <pre><code class="language-javascript">"world"</code></pre>
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">getPrefix()</span>
+		<p>Gets the prefix of a given phrase in a given text.</p>
+	</summary>
+	<p><b>Parameters: String (Full Text), String (Key)</b></p>
+	<p><b>Returns: String</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">Text.capitalize("hello world", "world");</code></pre>
+	<samp>
+		Result: <pre><code class="language-javascript">"hello"</code></pre>
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">getSelection()</span>
+		<p>Gets the currently selected text.</p>
+	</summary>
+	<p><b>Returns: String</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">Text.getSelection()</code></pre>
+	<samp>
+		Result: Returns currently selected text.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">removeSpecialCharacters()</span>
+		<p>Removes some special characters (# : ñ í ó ú á é Í Ó Ú Á É ( ) ¡ ¿ /).</p>
+	</summary>
+	<p><b>Parameters: String</b></p>
+	<p><b>Returns: String</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">Text.removePunctuation("And then, he woke up (or not).")</code></pre>
+	<samp>
+		Result: <pre><code class="language-javascript">"And then he woke up or not."</code></pre>
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">removePunctuation()</span>
+		<p>Removes all punctuation marks (; : . ,).</p>
+	</summary>
+	<p><b>Parameters: String</b></p>
+	<p><b>Returns: String</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">Text.removePunctuation("And then, he woke up.")</code></pre>
+	<samp>
+		Result: <pre><code class="language-javascript">"And then he woke up"</code></pre>
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">toUrl()</span>
+		<p>Encodes a url.</p>
+	</summary>
+	<p><b>Parameters: String</b></p>
+	<p><b>Returns: String</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">Text.toFriendlyUrl("La ñ es especial!");</code></pre>
+	<samp>
+		Result: <pre><code class="language-javascript">"La%20%C3%B1%20es%20especial!"</code></pre>
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">toFriendlyUrl()</span>
+		<p>Makes a given text url friendly.</p>
+	</summary>
+	<p><b>Parameters: String</b></p>
+	<p><b>Returns: String</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">Text.toFriendlyUrl("La ñ es especial!");</code></pre>
+	<samp>
+		Result: <pre><code class="language-javascript">"La-n-es-especial"</code></pre>
+	</samp>
+</details>

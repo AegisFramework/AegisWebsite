@@ -1,0 +1,437 @@
+<details>
+	<summary>
+		<span class="title">Instantiation</span>
+		<p>Creates the Aegis object.</p>
+	</summary>
+	<p><b>Parameters: String (Selector)</b></p>
+	<p><b>Returns: Aegis Object</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary");</code></pre>
+	<samp>
+		Result: An Aegis object for DOM Manipulation.
+	</samp>
+</details>
+
+
+<details>
+	<summary>
+		<span class="title">hide()</span>
+		<p>Hide the element.</p>
+	</summary>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").hide();</code></pre>
+	<samp>
+		Result: Hides all the elements that match the selector.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">show()</span>
+		<p>Shows the element.</p>
+	</summary>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").show();</code></pre>
+	<samp>
+		Result: Shows all the elements that match the selector.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">addClass()</span>
+		<p>Adds a class to the element.</p>
+	</summary>
+	<p><b>Parameters: String (Class to add)</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").addClass("fadeIn");</code></pre>
+	<samp>
+		Result: Adds the fadeIn class to every element matching the selector.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">removeClass()</span>
+		<p>Creates the Aegis object.</p>
+	</summary>
+	<p><b>Parameters: String (Class to remove)</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").removeClass("fadeIn");</code></pre>
+	<samp>
+		Result: Removes the fadeIn class from every element matching the selector.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">toggleClass()</span>
+		<p>Toggles the class of an element between two given classes.</p>
+	</summary>
+	<p><b>Parameters: String (Classes)</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").toggleClass("fadeIn fadeOut");</code></pre>
+	<samp>
+		Result: Toggles the fadeIn or fadeOut class in the elements matching the selector.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">value()</span>
+		<p>Returns the value of an element or sets it.</p>
+	</summary>
+	<p><b>Optional Parameters Parameters: String (Selector)</b></p>
+	<p><b>Returns: String (Value of the element)</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("input [data-content='mail']").value();</code></pre>
+	<samp>
+		Result: Returns the value of the input.
+	</samp>
+	<pre><code class="language-javascript">$_("input [data-content='mail']").value("mail@example.com");</code></pre>
+	<samp>
+		Result: Sets the value of the input to "mail@example.com".
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">click()</span>
+		<p>Adds a click listener to the element.</p>
+	</summary>
+	<p><b>Parameters: Callback Function</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("button [type='submit']").click(function(){
+	alert("Clicked");
+});</code></pre>
+	<samp>
+		Result: The listener is added to the element and will run the function at click.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">submit()</span>
+		<p>Adds a submit event listener.</p>
+	</summary>
+	<p><b>Parameters: Callback Function</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("#myForm").submit(function(){
+	alert("Submited");
+});</code></pre>
+	<samp>
+		Result: The listener is added to the element and will run the function at submit.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">change()</span>
+		<p>Adds a change event listener to an element.</p>
+	</summary>
+	<p><b>Parameters: Callback Function</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("#myForm input").change(function(){
+	alert("Something changed");
+});</code></pre>
+	<samp>
+		Result: The listener is added to the element and will run the function when the values change.
+	</samp>
+</details>
+
+
+<details>
+	<summary>
+		<span class="title">scroll()</span>
+		<p>Adds an event listener to the scroll event.</p>
+	</summary>
+	<p><b>Parameters: Callback Function</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_(".text").scroll(function(){
+	alert("Scroll detected");
+});</code></pre>
+	<samp>
+		Result: The listener is added to the element and will run the function at scroll.
+	</samp>
+</details>
+
+
+<details>
+	<summary>
+		<span class="title">on()</span>
+		<p>Adds an event listener to the the element.</p>
+	</summary>
+	<p><b>Parameters: String (Event), Callback Function</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").on("click", function(){
+	alert("click");
+});</code></pre>
+	<samp>
+		Result: The listener is added to the element and will run the function when the event happens.
+	</samp>
+</details>
+
+
+<details>
+	<summary>
+		<span class="title">filter()</span>
+		<p>Filters the matched elements and reduces them to the once that matches the new given selector.</p>
+	</summary>
+	<p><b>Parameters: String (Selector)</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").filter(".special");</code></pre>
+	<samp>
+		Result: The Aegis object will now hold those elements matching the div p.summary.special Selector.
+	</samp>
+</details>
+
+
+<details>
+	<summary>
+		<span class="title">data()</span>
+		<p>Retrieves or sets the data property of an element.</p>
+	</summary>
+	<p><b>Parameters: String (Data to retrieve)</b></p>
+	<p><b>Optional Parameters: String (New value of the data)</b></p>
+	<p><b>Returns: String</b></p>
+	<p>Example (Assuming the element has a data-content="mail" set):</p>
+	<pre><code class="language-javascript">$_("input [data-content]").data("content");</code></pre>
+	<samp>
+		Result: <pre><code class="language-javascript">"mail"</code></pre>
+	</samp>
+
+	<pre><code class="language-javascript">$_("input [data-content]").data("content", "email");</code></pre>
+	<samp>
+		Result: The data content will now be set to <pre><code class="language-javascript">"email"</code></pre>
+	</samp>
+</details>
+
+
+<details>
+	<summary>
+		<span class="title">text()</span>
+		<p>Retrieve the text of an element or sets it.</p>
+	</summary>
+	<p><b>Optional Parameters: String (New text)</b></p>
+	<p><b>Returns: String</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").text();</code></pre>
+	<samp>
+		Result: This will return the text in the <pre><code class="language-javascript">"div p.summary"</code></pre> element.
+	</samp>
+
+	<pre><code class="language-javascript">$_("div p.summary").text("New text");</code></pre>
+	<samp>
+		Result: Sets the text in the <pre><code class="language-javascript">"div p.summary"</code></pre> element to <pre><code class="language-javascript">"New text"</code></pre>.
+	</samp>
+</details>
+
+
+<details>
+	<summary>
+		<span class="title">html()</span>
+		<p>Retrieves the HTML inside an element or sets it.</p>
+	</summary>
+	<p><b>Optional Parameters: String (New HTML code)</b></p>
+	<p><b>Returns: String</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").html();</code></pre>
+	<samp>
+		Result: This will return the HTML inside the <pre><code class="language-javascript">"div p.summary"</code></pre> element.
+	</samp>
+
+	<pre><code class="language-javascript">$_("div p.summary").html("&lt;p&gt;New text&lt;/p&gt;");</code></pre>
+	<samp>
+		Result: Sets the HTML in the <pre><code class="language-javascript">"div p.summary"</code></pre> element to <pre><code class="language-javascript">"&lt;p&gt;New text&lt;/p&gt;"</code></pre>.
+	</samp>
+</details>
+
+
+<details>
+	<summary>
+		<span class="title">append()</span>
+		<p>Append an element to the current one.</p>
+	</summary>
+	<p><b>Parameters: String (New element)</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div").append("&lt;p&gt;New paragraph&lt;/p&gt;");</code></pre>
+	<samp>
+		Result: The new paragraph will be appended to the div element.
+	</samp>
+</details>
+
+
+<details>
+	<summary>
+		<span class="title">each()</span>
+		<p>Cycles through all the elements of the collection and runs the given function.</p>
+	</summary>
+	<p><b>Parameters: Callback Function. The element is sent to this function as a parameter.</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").each(function(element){
+	$_(element).style({color: "rgb(66, 66, 66);"});
+});</code></pre>
+	<samp>
+		Result: The function will be run for each p.summary element inside the div.
+	</samp>
+</details>
+
+
+<details>
+	<summary>
+		<span class="title">get()</span>
+		<p>Returns an element of the collection by it's index.</p>
+	</summary>
+	<p><b>Parameters: Integer (Index)</b></p>
+	<p><b>Returns: Aegis Object</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").get(0);</code></pre>
+	<samp>
+		Result: This will return the first element of the collection.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">isVisible()</span>
+		<p>Check if an element is visible or not.</p>
+	</summary>
+	<p><b>Returns: Boolean</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_(".hidden").isVisible();</code></pre>
+	<samp>
+		Result: True/False depending on the visibility of the hidden element.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">parent()</span>
+		<p>Returns the parent element.</p>
+	</summary>
+	<p><b>Returns: Aegis Object</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div.special").parent();</code></pre>
+	<samp>
+		Result: An Aegis object with the parent element of the div.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">find()</span>
+		<p>Find other element inside an element.</p>
+	</summary>
+	<p><b>Parameters: String (Selector)</b></p>
+	<p><b>Returns: Aegis Object</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div.stack").find("span.needle");</code></pre>
+	<samp>
+		Result: An Aegis object with the "span.needle" element if found.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">offset()</span>
+		<p>Gets the top and left coordinates of an element relative to the document.</p>
+	</summary>
+	<p><b>Parameters: String (Selector)</b></p>
+	<p><b>Returns: JSON Object</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_(".floating").offset();</code></pre>
+	<samp>
+		Result:
+		<pre><code class="language-javascript">{
+			top: 100,
+			left: 100
+		}</code></pre>
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">closest()</span>
+		<p>Finds the closest element that matches the given selector to the current element.</p>
+	</summary>
+	<p><b>Parameters: String (Selector)</b></p>
+	<p><b>Returns: Aegis Object</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").closest(".copy");</code></pre>
+	<samp>
+		Result: An Aegis object with the closest .copy element to the p.summary element.
+	</samp>
+</details>
+
+
+<details>
+	<summary>
+		<span class="title">attribute()</span>
+		<p>Gets the required attribute of an element or sets it.</p>
+	</summary>
+	<p><b>Parameters: String (Selector)</b></p>
+	<p><b>Returns: String</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("img.cover").attribute("src");</code></pre>
+	<samp>
+		Result: Returns the source of the img.cover element.
+	</samp>
+
+	<pre><code class="language-javascript">$_("img.cover").attribute("src", "http://example.com/img/newImage.png");</code></pre>
+	<samp>
+		Result: Sets the source of the img.cover element to http://example.com/img/newImage.png.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">after()</span>
+		<p>Insert content after each element.</p>
+	</summary>
+	<p><b>Parameters: String (Content)</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").after("&lt;p&gt;Some content&lt;/p&gt;");</code></pre>
+	<samp>
+		Result: The Some content paragraph will be added after the p.summary elements.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">before()</span>
+		<p>Insert content before each element.</p>
+	</summary>
+	<p><b>Parameters: String (Content)</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").before("&lt;p&gt;Some content&lt;/p&gt;");</code></pre>
+	<samp>
+		Result: The Some content paragraph will be added before the p.summary elements.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">style()</span>
+		<p>Sets the given style properties to the element.</p>
+	</summary>
+	<p><b>Parameters: String (Selector)</b></p>
+	<p><b>Returns: Aegis Object</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_("div p.summary").style({color: "red", margin: "1em"});</code></pre>
+	<samp>
+		Result: The p.summary elements will now have a red color and a margin of 1em.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">animate()</span>
+		<p>Custom animation of CSS properties.</p>
+	</summary>
+	<p><b>Parameters: JSON Object (CSS properties), Integer (Speed)</b></p>
+	<p>Example:</p>
+	<pre><code class="language-javascript">$_('html, body').animate({scrollTop: 500}, 1000);</code></pre>
+	<samp>
+		Result: The page will be smooth scrolled to the 500px distance.
+	</samp>
+</details>

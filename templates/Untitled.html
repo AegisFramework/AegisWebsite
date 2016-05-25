@@ -1,0 +1,593 @@
+ <div id="Aegis">
+		<h3>Aegis</h3>
+		<p>The Aegis module is the main module, and it provides three main functions.</p>
+		<details>
+			<summary>
+        		<span class="title">readPost()</span>
+        		<p>Check's if information sent via POST is set, validates it and returns an associative array with the validated data.</p>
+			</summary>
+    		<p>Parameters: String (Name of the inputs separated with a comma)</p>
+    		<p>Returns: Array/Boolean</p>
+    		<p>Example: (Assuming we have a form with a name, email and password inputs)</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->readPost</span>(<span class="string">"name,email,password"</span>);
+    		</code>
+    		<samp>
+    			Result: [<span class="string">"name"</span>=><span class="string">"Aegis"</span>,
+    			<span class="string">"email"</span>=><span class="string">"email@email.com"</span>,
+    			<span class="string">"password"</span>=><span class="string">"hjaos"</span>]
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">readGet()</span>
+        		<p>Check's if information sent via GET is set, validates it and returns an associative array with the validated data.</p>
+			</summary>
+    		<p>Parameters: String (Name of the inputs separated with a comma)</p>
+    		<p>Returns: Array/Boolean</p>
+    		<p>Example: (Assuming we have a form with a name, email and password inputs)</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->readGet</span>(<span class="string">"numer,id"</span>);
+    		</code>
+    		<samp>
+    			Result: [<span class="string">"number"</span>=>1,
+    			<span class="string">"id"</span>=>132]
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">p()</span>
+        		<p>This function is a safe echo(), it will encode all HTML entities. The strings printed by this function are the ones declared on the String resources. Android programmers will find this familiar. </p>
+			</summary>
+    		<p>Parameters: String</p>
+    		<p>Returns: None</p>
+    		<p>Example: </p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->p</span>(<span class="string">"@string/Title"</span>);
+    		</code>
+    		<samp>Result: Echoes the "Title" string</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">getRoute()</span>
+        		<p>This function get's the current URL and separates it into an array. This is used for the File Router in the index.php.</p>
+			</summary>
+    		<p>Parameters: None</p>
+    		<p>Returns: Array</p>
+    		<p>Example: </p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->getRoute</span>();
+    		</code>
+    		<samp>Result: Returns array separated by the "/".</samp>
+		</details>
+    </div>
+    <div id="Security">
+		<h3>Security</h3>
+		<p>The security module takes care of validating data and getting information about the user for security purposes.</p>
+		<details>
+			<summary>
+        		<span class="title">secureData()</span>
+        		<p>Checks if the data doesn't contain dangerous strings or known spam.</p>
+			</summary>
+    		<p>Parameters: String</p>
+    		<p>Optional Parameters: Boolean (Allow HTML in text), Boolean (Allow text to be empty)</p>
+    		<p>Returns: String/Boolean</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->security->secureData</span>(<span class="string">"Hi there how Are you?"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="string">"Hi there how Are you?"</span>
+    		</samp>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->security->secureData</span>(<span class="string">"INSERT INTO Database..."</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="boolean">false</span>
+    		</samp>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->security->secureData</span>(<span class="string">""</span>, <span class="boolean">false</span>, <span class="boolean">false</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="boolean">false</span>
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">getUserIp()</span>
+        		<p>Gets the user's IP adress.</p>
+			</summary>
+    		<p>Parameters: None</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->security->getUserIp</span>();
+    		</code>
+    		<samp>
+    			Result: <span class="string">"1.2.3.4"</span>
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">getUserAgent()</span>
+        		<p>Gets the user's User Agent.</p>
+			</summary>
+    		<p>Parameters: None</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->security->getUserAgent</span>();
+    		</code>
+    		<samp>
+    			Result: User Agent
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">getUserAgentInformation()</span>
+        		<p>Gets the user's User Agent and orders the data in an array.</p>
+			</summary>
+    		<p>Parameters: None</p>
+    		<p>Returns: Associative Array</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->security->getUserAgentInformation</span>();
+    		</code>
+    		<samp>
+    			Result: User Agent Information
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">validateType()</span>
+        		<p>Validates the given data in the given format.</p>
+			</summary>
+			<p>Formats: String:"string", Integer:"int", Boolean:"boolean", Number:"numeric", Array:"array".</p>
+    		<p>Parameters: Data,String</p>
+    		<p>Returns: Boolean</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->security->validateType</span>(<span class="string">"hello"</span>,<span class="string">"int"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="boolean">false</span>
+    		</samp>
+		</details>
+	</div>
+	<div id="Textphp">
+		<h3>Text</h3>
+		<p>The text module takes care of text-related tasks and functionalities.</p>
+		<details>
+    		<summary>
+        		<span class="title">buildText()</span>
+        		<p>Builds a text with the given parameters. (Pretty useful for Blogs)</p>
+    		</summary>
+    		<p>Parameters: Array (Associative Array Containing The Data), String (Data to be placed, (name of the data in the array)), String (Text Wrapper)</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->text->buildText</span>([<span class="string">"Title"</span> => <span class="string">"My Title"</span>, <span class="string">"Content"</span> =><span class="string">"&lt;span&gt;hello world&lt;/span&gt;"</span> ],<span class="string">"Title,Content"</span>,<span class="string">"&lt;h1&gt;@Title&lt;/h1&gt;&lt;p&gt;@Content&lt;/p&gt;"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="string">"&lt;h1&gt;My Title&lt;/h1&gt;&lt;p&gt;&lt;span&gt;hello world&lt;/span&gt;&lt;/p&gt;"</span>
+    		</samp>
+		</details>
+		<details>
+    		<summary>
+        		<span class="title">capitalize()</span>
+        		<p>Capitalizes every first letter of all the words in the text.</p>
+    		</summary>
+    		<p>Parameters: String</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->text->capitalize</span>(<span class="string">"hello world"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="string">"Hello World"</span>
+    		</samp>
+		</details>
+		<details>
+    		<summary>
+        		<span class="title">checkSimilarity()</span>
+        		<p>Checks the percentage of similarity between two strings.</p>
+    		</summary>
+    		<p>Parameters: String, String</p>
+    		<p>Returns: Number</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->text->checkSimilarity</span>(<span class="string">"hello world"</span>,<span class="string">"Hello world"</span>);
+    		</code>
+    		<samp>
+    			Result: Percentage
+    		</samp>
+		</details>
+		<details>
+    		<summary>
+        		<span class="title">getSuffix()</span>
+        		<p>Gets the suffix of a given phrase in a given text.</p>
+    		</summary>
+    		<p>Parameters: String, String</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->text->getSuffix</span>(<span class="string">"hello world"</span>,<span class="string">"hello "</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="string">"world"</span>
+    		</samp>
+		</details>
+		<details>
+    		<summary>
+        		<span class="title">getPrefix()</span>
+        		<p>Gets the prefix of a given phrase in a given text.</p>
+    		</summary>
+    		<p>Parameters: String, String</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->text->getPrefix</span>(<span class="string">"hello world"</span>,<span class="string">" world"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="string">"hello"</span>
+    		</samp>
+		</details>
+		<details>
+    		<summary>
+        		<span class="title">getAffixes()</span>
+        		<p>Gets the prefix and suffix of a given phrase in a given text.</p>
+    		</summary>
+    		<p>Parameters: String, String</p>
+    		<p>Returns: Array</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->text->getAffixes</span>(<span class="string">"hello to all the world"</span>,<span class="string">" to all the "</span>);
+    		</code>
+    		<samp>
+    			Result: [<span class="string">"hello"</span>, <span class="string">"world"</span>]
+    		</samp>
+		</details>
+		<details>
+    		<summary>
+        		<span class="title">getStringBetween()</span>
+        		<p>Gets the text between other two strings.</p>
+    		</summary>
+    		<p>Parameters: String, String, String</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->text->getAStringBetween</span>(<span class="string">"hello to all the world"</span>,<span class="string">"hello"</span>,<span class="string">"world"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="string">" to all the "</span>
+    		</samp>
+		</details>
+		<details>
+    		<summary>
+        		<span class="title">removeTags()</span>
+        		<p>Removes all php and html tags from a text.</p>
+    		</summary>
+    		<p>Parameters: String</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->text->removeTags</span>(<span class="string">"&lt;span&gt;hello world&lt;/span&gt;"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="string">"hello world"</span>
+    		</samp>
+		</details>
+		<details>
+    		<summary>
+        		<span class="title">removeSpecialCharacters()</span>
+        		<p>Removes the following characters from a text: #,:,ñ,í,ó,ú,á,é,Í,Ó,Ú,Á,É,(,),¡,¿</p>
+    		</summary>
+    		<p>Parameters: String</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->text->removeSpecialCharacters</span>(<span class="string">"Español"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="string">"Espanol"</span>
+    		</samp>
+		</details>
+		<details>
+    		<summary>
+        		<span class="title">removePunctuation()</span>
+        		<p>Removes the following characters from a text: ;,.</p>
+    		</summary>
+    		<p>Parameters: String</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->text->removePunctuation</span>(<span class="string">"Hey, goodbye."</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="string">"Hey goodbye"</span>
+    		</samp>
+		</details>
+
+	</div>
+
+
+
+	<div id="Session">
+		<h3>Session</h3>
+		<p>The session module handles sessions.</p>
+		<details>
+			<summary>
+        		<span class="title">start()</span>
+        		<p>Starts the session, and saves the user's IP and User Agent in an Session variable for security.</p>
+			</summary>
+    		<p>Parameters: None</p>
+    		<p>Returns: None</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->session->start</span>();
+    		</code>
+    		<samp>
+    			Result: $_SESSION[<span class="string">"meta"</span>]=[<span class="string">"ip"</span>=><span class="string">"User's IP"</span>,<span class="string">"agent"</span>=><span class="string">"User Agent"</span>];
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">regenerate()</span>
+        		<p>Regenerates the session ID.</p>
+			</summary>
+    		<p>Parameters: None</p>
+    		<p>Returns: None</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->session->regenerate</span>();
+    		</code>
+    		<samp>
+    			Result: A new Session ID
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">end()</span>
+        		<p>Ends the session and unsets all the variables and cookies.</p>
+			</summary>
+    		<p>Parameters: None</p>
+    		<p>Returns: None</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->session->end</span>();
+    		</code>
+    		<samp>
+    			Result: Session end
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">check()</span>
+        		<p>Checks if the current user's data matches with the session saved data (IP and UserAgent).</p>
+			</summary>
+    		<p>Parameters: None</p>
+    		<p>Returns: Boolean (If current data matches the saved data.)</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->session->check</span>();
+    		</code>
+    		<samp>
+    			Result: <span class="boolean">true</span>/<span class="boolean">false</span>
+    		</samp>
+		</details>
+	</div>
+	<div id="Files">
+		<h3>Files</h3>
+		<p>The files module handles uploads, files validation, renaming and resize.</p>
+		<details>
+			<summary>
+        		<span class="title">getSize()</span>
+        		<p>Gets the size in bytes of a given file.</p>
+			</summary>
+    		<p>Parameters: File</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->files->getSize</span>(file);
+    		</code>
+    		<samp>
+    			Result: Size of the file in bytes.
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">exists()</span>
+        		<p>Checks if a file already exists.</p>
+			</summary>
+    		<p>Parameters: String (File Path)</p>
+    		<p>Returns: Boolean</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->files->exists</span>(<span class="string">"img/s.jpg"</span>);
+    		</code>
+    		<samp>
+    			Result:<span class="boolean">true</span>/<span class="boolean">false</span>
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">delete()</span>
+        		<p>Deletes a File.</p>
+			</summary>
+    		<p>Parameters: String (File Path)</p>
+    		<p>Returns: Boolean</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->files->delete</span>(<span class="string">"img/s.jpg"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="boolean">true</span>/<span class="boolean">false</span>
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">rename()</span>
+        		<p>Renames a File.</p>
+			</summary>
+    		<p>Parameters: String (File Path), String (New File Path)</p>
+    		<p>Returns: Boolean</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->files->delete</span>(<span class="string">"img/s.jpg"</span>, <span class="string">"img/side.jpg"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="boolean">true</span>/<span class="boolean">false</span>
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">upload()</span>
+        		<p>Uploads a file.</p>
+			</summary>
+    		<p>Parameters: File (Via POST),String (Path to save it to), Number (Allowed Size)</p>
+    		<p>Returns: Boolean</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->files->upload</span>(file,<span class="string">"uploads/"</span>,20000);
+    		</code>
+    		<samp>
+    			Result: <span class="boolean">true</span>/<span class="boolean">false</span>
+    		</samp>
+		</details>
+	</div>
+
+
+
+	<div id="Util">
+		<h3>Util</h3>
+		<p>The util module handles some specific tasks.</p>
+		<details>
+			<summary>
+        		<span class="title">getRandomString()</span>
+        		<p>Gets a random string of the given length.</p>
+			</summary>
+    		<p>Parameters: Integer</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->util->getRandomString</span>(5);
+    		</code>
+    		<samp>
+    			Result: A 5 length random String
+    		</samp>
+		</details>
+	</div>
+	<div id="Crypt">
+		<h3>Crypt</h3>
+		<p>The crypt module handles text encryption using Mcrypt and the AES algorithm.</p>
+		<details>
+			<summary>
+        		<span class="title">generateKey()</span>
+        		<p>Generates the key for encryption.</p>
+			</summary>
+    		<p>Parameters: None</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->crypt->generateKey</span>();
+    		</code>
+    		<samp>
+    			Result: A Key for encryption
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">regenerateKey()</span>
+        		<p>Regenerates the key for encryption.</p>
+			</summary>
+    		<p>Parameters: None</p>
+    		<p>Returns: None</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->crypt->regenerateKey</span>();
+    		</code>
+    		<samp>
+    			Result: Changes the Encryption Key
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">setKey()</span>
+        		<p>Sets the key for encryption.</p>
+			</summary>
+    		<p>Parameters: String</p>
+    		<p>Returns: None</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->crypt->setKey</span>(key);
+    		</code>
+    		<samp>
+    			Result: Sets the Encryption Key
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">getKey()</span>
+        		<p>Gets the key for encryption.</p>
+			</summary>
+    		<p>Parameters: None</p>
+    		<p>Returns: None</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->crypt->getKey</span>();
+    		</code>
+    		<samp>
+    			Result: Returns the Encryption Key
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">encrypt()</span>
+        		<p>Encrypts a given text.</p>
+			</summary>
+    		<p>Parameters: String (Text to Encrypt)</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->crypt->encrypt</span>(<span class="string">"text"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="string">"Encrypted Text"</span>
+    		</samp>
+		</details>
+		<details>
+			<summary>
+        		<span class="title">decrypt()</span>
+        		<p>Decrypts a given text.</p>
+			</summary>
+    		<p>Parameters: String (Text to Decrypt)</p>
+    		<p>Returns: String</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->crypt->encrypt</span>(<span class="string">"Encrypted Text"</span>);
+    		</code>
+    		<samp>
+    			Result: <span class="string">"Text"</span>
+    		</samp>
+		</details>
+	</div>
+	<div id="Images">
+		<h3>Images</h3>
+		<p>The image module handles Images Operations.</p>
+		<details>
+			<summary>
+        		<span class="title">uploadImages()</span>
+        		<p>Uploads a single or multiple images.</p>
+			</summary>
+    		<p>Parameters: File (Uploaded Via POST), String (Directory to save to)</p>
+    		<p>Optional Parameters: Number (Max File Size), String (Rename), Number (Width), Number (Height)</p>
+    		<p>Returns: File Path / False if Failed</p>
+    		<p>Example:</p>
+    		<code>
+    			<span class="object">$_</span><span class="fn">->util->uploadImages</span>(file, "img/",20000,"new",500,500);
+    		</code>
+    		<samp>
+    			Result: Store the Image in img/, change the name to "new" and resize it to 500 x 500 px
+    		</samp>
+		</details>
+	</div>

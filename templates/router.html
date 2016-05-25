@@ -1,0 +1,139 @@
+<details>
+	<summary>
+		<span class="title">Instantiation</span>
+		<p>How to create a Router object.</p>
+	</summary>
+	<p><b>Optional Parameters:</b> String (Domain)</p>
+	<p><b>Returns:</b> Password Instance</p>
+	<p>Example:</p>
+	<pre><code class="language-php">$router = new Router();</code></pre>
+	<samp>
+		Result: $router is now a router object and will have it's domain set as it is received in the $_SERVER['HTTP_HOST'].
+	</samp>
+
+	<pre><code class="language-php">$router = new Router("domain.com");</code></pre>
+	<samp>
+		Result: $router is now a router object and will have it's domain set as "domain.com".
+	</samp>
+
+	Setting the correct domain is important since it's used as the base route to load your files like css and js. Failing to do so may result in your webpage not loading those files.
+</details>
+
+<details>
+	<summary>
+		<span class="title">getRoute()</span>
+		<p>Returns the current route.</p>
+	</summary>
+	<p><b>Parameters:</b> None</p>
+	<p><b>Returns:</b> String (Route)</p>
+	<p>Example: (Assuming our current url is "domain.com/url/info/")</p>
+	<pre><code class="language-php">$router -> getRoute();</code></pre>
+	<samp>
+		Result: The current route. Ex:
+		<pre><code class="language-php">"/url/info/"</code></pre>
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">getBaseUrl()</span>
+		<p>Returns the base url, in other words the domain it has set.</p>
+	</summary>
+	<p><b>Parameters:</b> None</p>
+	<p><b>Returns:</b> String (Url)</p>
+	<p>Example: (Continuing with our example of "domain.com")</p>
+	<pre><code class="language-php">$router -> getBaseUrl();</code></pre>
+	<samp>
+		Result: The base url or domain with it's protocol. Ex:
+		<pre><code class="language-php">"http://domain.com/"</code></pre>
+		Or in case it's running in https:
+		<pre><code class="language-php">"https://domain.com/"</code></pre>
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">getFullUrl()</span>
+		<p>Returns the entire url, meaning it's base url and it's route.</p>
+	</summary>
+	<p><b>Parameters:</b> None</p>
+	<p><b>Returns:</b> String (Url)</p>
+	<p>Example: (Continuing with our example of "domain.com/url/info/")</p>
+	<pre><code class="language-php">$router -> getFullUrl();</code></pre>
+	<samp>
+		Result: The base url or domain with it's protocol. Ex:
+		<pre><code class="language-php">"http://domain.com/url/info/"</code></pre>
+		Or in case it's running in https:
+		<pre><code class="language-php">"https://domain.com/url/info/"</code></pre>
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">registerRoute()</span>
+		<p>Registers a route and what to display in it.</p>
+	</summary>
+	<p><b>Parameters:</b> String (Route), View/String (A view Object or a string indicating the file to include)</p>
+	<p><b>Returns:</b> None</p>
+	<p>Example: (Continuing with our example of "domain.com/url/info/")</p>
+	<pre><code class="language-php">$router -> registerRoute("/url/info", "files/information.php");</code></pre>
+	<samp>
+		Result: When "domain.com/url/info/" is accessed it will show the content from information.php. Ex:
+		<pre><code class="language-php">"http://domain.com/url/info/"</code></pre>
+	</samp>
+
+	<pre><code class="language-php">$router -> registerRoute("/url/info", new View("info", ["info" => "Some information"], ["title" => "Information"]]));</code></pre>
+	<samp>
+		Result: When "domain.com/url/info/" is accessed it will show the compiled contents of the View info. Ex:
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">getRoutes()</span>
+		<p>Returns an Associative array with all your registered routes.</p>
+	</summary>
+	<p><b>Parameters:</b> None</p>
+	<p><b>Returns:</b> Associative Array (Routes)</p>
+	<p>Example: </p>
+	<pre><code class="language-php">$router -> getRoutes();</code></pre>
+	<samp>
+		Result:
+		<pre><code class="language-php">["/url/info" => "files/information.php"]</code></pre>
+
+		Or in case you added the View Object:
+		<pre><code class="language-php">["/url/info" => new View("info", ["info" => "Some information"], ["title" => "Information"])]</code></pre>
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">match()</span>
+		<p>Check if the current route matches one previously registered.</p>
+	</summary>
+	<p><b>Parameters:</b> None</p>
+	<p><b>Returns:</b> Boolean (Whether it matches or not)</p>
+	<p>Example: (Continuing with the example where we have only registered the route "/url/info")</p>
+	<pre><code class="language-php">$router -> match();</code></pre>
+	<samp>
+		Result: True if we are in the "/url/info" route or false if we are in other route.
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="title">getView()</span>
+		<p>Returns an Associative array with all your registered routes.</p>
+	</summary>
+	<p><b>Parameters:</b> None</p>
+	<p><b>Returns:</b> Associative Array (Routes)</p>
+	<p>Example: </p>
+	<pre><code class="language-php">$router -> getRoutes();</code></pre>
+	<samp>
+		Result:
+		<pre><code class="language-php">["/url/info" => "files/information.php"]</code></pre>
+
+		Or in case you added the View Object:
+		<pre><code class="language-php">["/url/info" => new View("info", ["info" => "Some information"], ["title" => "Information"])]</code></pre>
+	</samp>
+</details>

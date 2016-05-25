@@ -1,0 +1,32 @@
+<details>
+	<summary>
+	<span class="function">requestPermission()</span>
+	<p>Requests the user permission to show notifications.</p>
+	</summary>
+	<p>Parameters: None</p>
+	<p>Returns: None</p>
+	<p>Example:</p>
+	<code>
+	<span class="object">$_</span><span class="fn">.notification.requestPermission</span>();
+	</code>
+	<samp>
+	Result: The browser will request the permission to the user
+	</samp>
+</details>
+
+<details>
+	<summary>
+		<span class="function">show()</span>
+		<p>Shows a notification.</p>
+	</summary>
+	<p>Parameters: String (Title), String (Text), String (URL of Image)</p>
+	<p>Optional Parameters: Function (Function to run on the click event), Function (Function to run on the error event), Function (Function to run on the show event), Function (Function to run on the close event)</p>
+	<p>Returns: None</p>
+	<p>Example:</p>
+	<code>
+		<span class="object">$_</span><span class="fn">.notification.show</span>(<span class="string">"Hi!"</span>, <span class="string">"Hi there!"</span>, <span class="string">"http://aegisframework.com/img/notification.png"</span>);
+	</code>
+	<samp>
+		Result: A notification will be shown to the user
+	</samp>
+</details>

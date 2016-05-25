@@ -97,6 +97,8 @@
 					<li><a href="/css">CSS</a></li>
 					<li><a href="/javascript">JS</a></li>
 					<li><a href="/php">PHP</a></li>
+					<li><a href="/template">Template</a></li>
+					<li><a href="/framework">Framework</a></li>
 				</ul>
 			</nav>
 		</header>

@@ -1,312 +1,49 @@
 <section class="row offset-tn">
     <h2>Aegis JS Library Documentation</h2>
-    <h4>Warning: This Documentation is Deprecated, new documentation coming soon.</h4>
-    <p>Aegis JS is divided into 5 modules for specific tasks or utilities and a plugins area.</p>
+    <h4>Warning: This Documentation is a Work in Progress.</h4>
+    <p>The Aegis JS Library provides multiple classes for different purposes which work well with any other JS library.</p>
     <ol>
-	    <li><a href="#Text">Text</a></li>
-	    <li><a href="#Speech">Speech</a></li>
-	    <li><a href="#Storage">Storage</a></li>
-	    <li><a href="#Notification">Notification</a></li>
-	    <li><a href="#Screen">Screen</a></li>
+	    <li><a href="javascript/#DOM">DOM Manipulation</a></li>
+	    <li><a href="javascript/#Notification">Notification</a></li>
+	    <li><a href="javascript/#Request">Request</a></li>
+	    <li><a href="javascript/#Screen">Screen</a></li>
+	    <li><a href="javascript/#Storage">Storage</a></li>
+	    <li><a href="javascript/#Text">Text</a></li>
     </ol>
-    <div id="Aegisjs">
-		<h3>Plugins and functions</h3>
-		<p>This adds some extra functionalities and utilities to the JS.</p>
-		<details>
-			<summary>
-        		<span class="function">Smooth Link Scroll</span>
-        		<p>There's already an active function that will make the scroll to id smoother.</p>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">mailto()</span>
-        		<p>Email obfuscation for spam-bots. In order for this to work, you'll have to write your mailto a tags with the class "mailto" and the email between the tags as follows (without the "mailto:"):</p>
-			</summary>
-    		<code>
-    			<a class="mailto">email(at)sample(dot)com</a>
-    		</code>
-    		<samp>
-    			Result: The JS will parse correctly the mail for users, while bots won't be able to do it.
-    		</samp>
-		</details>
 
+    <div id="DOM">
+		<h3>DOM Manipulation</h3>
+		<p>This module handles DOM Manipulation in jQuery-like way.</p>
+		{{> DOM}}
 	</div>
-	<div id="Text">
-		<h3>Text</h3>
-		<p>The text module takes care of text-related tasks and functionalities.</p>
-		<details>
-    		<summary>
-        		<span class="function">capitalize()</span>
-        		<p>Capitalizes every first letter of all the words in the text.</p>
-    		</summary>
-    		<p>Parameters: String</p>
-    		<p>Returns: String</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.text.capitalize</span>(<span class="string">"hello world"</span>);
-    		</code>
-    		<samp>
-    			Result: <span class="string">"Hello World"</span>
-    		</samp>
-		</details>
 
-		<details>
-			<summary>
-        		<span class="function">getSuffix()</span>
-        		<p>Gets the suffix of a given phrase in a given text.</p>
-			</summary>
-    		<p>Parameters: String, String</p>
-    		<p>Returns: String</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.text.getSuffix</span>(<span class="string">"This is cool."</span>,<span class="string">"This is "</span>);
-    		</code>
-    		<samp>
-    			Result: <span class="string">"cool."</span>
-    		</samp>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">getPrefix()</span>
-        		<p>Gets the prefix of a given phrase in a given text.</p>
-			</summary>
-    		<p>Parameters: String, String</p>
-    		<p>Returns: String</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.text.getSuffix</span>(<span class="string">"This is cool."</span>,<span class="string">"cool."</span>);
-    		</code>
-    		<samp>
-    			Result: <span class="string">"This is "</span>
-    		</samp>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">getAffixes()</span>
-        		<p>Gets the prefix and suffix of a given phrase in a given text.</p>
-			</summary>
-    		<p>Parameters: String, String</p>
-    		<p>Returns: JSON</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.text.getSuffix</span>(<span class="string">"Hello there, how are you?."</span>,<span class="string">" how "</span>);
-    		</code>
-    		<samp>
-    			Result: {prefix: <span class="string">"Hello there,"</span>, suffix: <span class="string">"are you?"</span>}
-    		</samp>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">getSelected()</span>
-        		<p>Gets the currently selected text.</p>
-			</summary>
-    		<p>Parameters: None</p>
-    		<p>Returns: String</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.text.getSelected</span>();
-    		</code>
-    		<samp>
-    			Result: "User selected text"
-    		</samp>
-		</details>
-	</div>
-	<div id="Speech">
-		<h3>Speech</h3>
-		<p>The speech module uses the new Speech Synthesis API and may not work in some browsers.</p>
-		<details>
-			<summary>
-        		<span class="function">talk()</span>
-        		<p>Speaks the given text.</p>
-			</summary>
-    		<p>Parameters: String (Text), String (Language)</p>
-    		<p>Returns: None</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.speech.talk</span>(<span class="string">"Hi there!"</span>, <span class="string">"en-US"</span>);
-    		</code>
-    		<samp>
-    			Result: Audio output of "Hi there!"
-    		</samp>
-		</details>
-	</div>
-	<div id="Storage">
-		<h3>Storage</h3>
-		<p>The storage module uses the HTML5 Local Storage and deals with the related tasks.</p>
-		<details>
-			<summary>
-        		<span class="function">set()</span>
-        		<p>Stores a given data in a given key-name.</p>
-			</summary>
-    		<p>Parameters: String, String</p>
-    		<p>Returns: none</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.storage.set</span>(<span class="string">"Color"</span>,<span class="string">"Black"</span>);
-    		</code>
-    		<samp>
-    			Result: Stores "Black" in "Color"
-    		</samp>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">get()</span>
-        		<p>Gets the data of a given key.</p>
-			</summary>
-    		<p>Parameters: String</p>
-    		<p>Returns: String</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.storage.get</span>(<span class="string">"Color"</span>);
-    		</code>
-    		<samp>
-    			Result: "Black"
-    		</samp>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">clear()</span>
-        		<p>Deletes all the Locally Stored Data.</p>
-			</summary>
-    		<p>Parameters: None</p>
-    		<p>Returns: None</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.storage.clear</span>();
-    		</code>
-    		<samp>
-    			Result: Deletes all the stored Data
-    		</samp>
-		</details>
-
-	</div>
 	<div id="Notification">
 		<h3>Notification</h3>
 		<p>The notification module uses the new HTML5 notifications API and may not work in some browsers.</p>
-		<details>
-			<summary>
-        		<span class="function">requestPermission()</span>
-        		<p>Requests the user permission to show notifications.</p>
-			</summary>
-    		<p>Parameters: None</p>
-    		<p>Returns: None</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.notification.requestPermission</span>();
-    		</code>
-    		<samp>
-    			Result: The browser will request the permission to the user
-    		</samp>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">show()</span>
-        		<p>Shows a notification.</p>
-			</summary>
-    		<p>Parameters: String (Title), String (Text), String (URL of Image)</p>
-    		<p>Optional Parameters: Function (Function to run on the click event), Function (Function to run on the error event), Function (Function to run on the show event), Function (Function to run on the close event)</p>
-    		<p>Returns: None</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.notification.show</span>(<span class="string">"Hi!"</span>, <span class="string">"Hi there!"</span>, <span class="string">"http://aegisframework.com/img/notification.png"</span>);
-    		</code>
-    		<samp>
-    			Result: A notification will be shown to the user
-    		</samp>
-		</details>
+		<!--{{> jsNotification}}-->
 	</div>
+
+	<div id="Request">
+		<h3>Request</h3>
+		<p>This module handles HTTP requests.</p>
+		{{> jsRequest}}
+	</div>
+
 	<div id="Screen">
 		<h3>Screen</h3>
-		<p>The screen module is used to get information about the user's display or device.</p>
-		<details>
-			<summary>
-        		<span class="function">isRetina()</span>
-        		<p>Checks if the display has Retina resolution.</p>
-			</summary>
-    		<p>Parameters: None</p>
-    		<p>Returns: Boolean</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.screen.isRetina</span>();
-    		</code>
-    		<samp>
-    			Result:  <span class="boolean">true</span>/<span class="boolean">false</span>
-    		</samp>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">isPortrait()</span>
-        		<p>Checks if the device is in Portrait orientation.</p>
-			</summary>
-    		<p>Parameters: None</p>
-    		<p>Returns: Boolean</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.screen.isPortrait</span>();
-    		</code>
-    		<samp>
-    			Result: <span class="boolean">true</span>/<span class="boolean">false</span>
-    		</samp>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">isLandscape()</span>
-        		<p>Checks if the device is in Landscape orientation.</p>
-			</summary>
-    		<p>Parameters: None</p>
-    		<p>Returns: Boolean</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.screen.isLandscape</span>();
-    		</code>
-    		<samp>
-    			Result:  <span class="boolean">true</span>/<span class="boolean">false</span>
-    		</samp>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">getOrientation()</span>
-        		<p>Gets the device current orientation.</p>
-			</summary>
-    		<p>Parameters: None</p>
-    		<p>Returns: String</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.screen.getOrientation</span>();
-    		</code>
-    		<samp>
-    			Result: "portrait"/"landscape"
-    		</samp>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">getMaxiumWidth()</span>
-        		<p>Gets the display width.</p>
-			</summary>
-    		<p>Parameters: None</p>
-    		<p>Returns: Number</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.screen.getMaxiumWidth</span>();
-    		</code>
-    		<samp>
-    			Result: Number in pixels
-    		</samp>
-		</details>
-		<details>
-			<summary>
-        		<span class="function">getMaxiumHeight()</span>
-        		<p>Gets the display height.</p>
-			</summary>
-    		<p>Parameters: None</p>
-    		<p>Returns: Number</p>
-    		<p>Example:</p>
-    		<code>
-    			<span class="object">$_</span><span class="fn">.screen.getMaxiumHeight</span>();
-    		</code>
-    		<samp>
-    			Result: Number in pixels
-    		</samp>
-		</details>
+		<p>The screen module takes care of checking information from the device's screen.</p>
+		{{> jsScreen}}
 	</div>
-	</section>
+
+	<div id="Storage">
+		<h3>Storage</h3>
+		<p>The storage module uses the HTML5 Local Storage and deals with the related tasks.</p>
+		{{> jsStorage}}
+	</div>
+
+	<div id="Text">
+		<h3>Text</h3>
+		<p>The text module takes care of text-related tasks and functionalities.</p>
+		{{> jsText}}
+	</div>
+</section>
